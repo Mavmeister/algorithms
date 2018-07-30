@@ -35,4 +35,5 @@ function reverse(str){
   let rev = str.split('').reduce(((reversed, character) => character + reversed), '')
   return rev;
 }
+
 module.exports = reverse;
