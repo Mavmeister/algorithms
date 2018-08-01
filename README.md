@@ -1,1 +1,2 @@
-# Algorithm challenges for interviews containing multiple solutions
+# Algorithm challenges
+for interviews containing multiple solutions
