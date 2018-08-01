@@ -12,13 +12,6 @@
 //   return reversed === str;
 // }
 
-// function palindrome(str) {
-//   return str.split('').every((char, i) => {
-//     // console.log('char', char, str[str.length - i - 1])
-//     return char === str[str.length - i - 1]
-//   })
-// }
-
 function palindrome(str) {
   return str.split('').every((char, i) => {
     // console.log('char', char, str[str.length - i - 1])
