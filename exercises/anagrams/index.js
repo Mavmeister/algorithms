@@ -8,40 +8,46 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
+// SOLUTION 1
+// function buildCharMap(string){
+//   let obj = {};
 
-function buildCharMap(string){
-  let obj = {};
+//   for (let char of string.replace(/[^\w]/g, '').toLowerCase()){
+//     obj[char] = obj[char] + 1 || 1;
+//   }
+//   console.log(obj)
+//   return obj;
+// }
 
-  for (let char of string.replace(/[^\w]/g, '').toLowerCase()){
-    obj[char] = obj[char] + 1 || 1;
-  }
-  console.log(obj)
-  return obj;
+// function anagrams(string1, string2){
+//   const charMapA = buildCharMap(string1)
+//   const charMapB = buildCharMap(string2)
+//   // get keys in array and look at length
+//   // if different, then diff number of unique letters
+//   if (Object.keys(charMapA).length !== Object.keys(charMapB).length){
+//     return false;
+//   }
+//   // compare number of each letter, if different, then no way
+//   // that this is anagram
+//   for (let char in charMapA){
+//     if (charMapA[char] !== charMapB[char]){
+//       return false;
+//     }
+//   }
+//   return true;
+
+// }
+
+function helper(string){
+  return string.replace(/[^\w]/g, '')
+    .toLowerCase()
+    .split('')
+    .sort()
+    .join('')
 }
 
 function anagrams(string1, string2){
-  const charMapA = buildCharMap(string1)
-  const charMapB = buildCharMap(string2)
-  // get keys in array and look at length
-  // if different, then diff number of unique letters
-  if (Object.keys(charMapA).length !== Object.keys(charMapB).length){
-    return false;
-  }
-  // compare number of each letter, if different, then no way
-  // that this is anagram
-  for (let char in charMapA){
-    if (charMapA[char] !== charMapB[char]){
-      return false;
-    }
-  }
-  return true;
-
+  return helper(string1) == helper(string2)
 }
-
-// anagrams('rail safety', 'fairy tales')
-// anagrams('RAIL! SAFETY!', 'fairy tales')
-// anagrams('RAIL! SAssFETY!', 'fairyea tales')
-
-
 
 module.exports = anagrams;
